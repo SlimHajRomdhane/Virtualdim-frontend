@@ -1,0 +1,8 @@
+.background-page {
+  background-image: url("./assets/img/flags/bg14.jpg");
+  background-size: cover;
+}
+
+.content {
+  margin: 0 3rem;
+}
