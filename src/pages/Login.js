@@ -3,7 +3,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-
 function Login(props) {
   const [user, setUser] = useState({
     email: "",
@@ -18,7 +17,7 @@ function Login(props) {
 
   const login = (e) => {
     axios
-      .post("http://localhost:3002/users/login", user)
+      .post("https://api.virtualdim.com/users/login", user)
       .then(({ data }) => {
         localStorage.setItem("token", data.token);
         props.setUser(data.user);

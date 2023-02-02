@@ -12,7 +12,7 @@ function Dashboard({ setUser, user }) {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .post("http://localhost:3002/users/verify", { token })
+        .post("https://api.virtualdim.com/users/verify", { token })
         .then(({ data }) => {
           setUser(data);
           setIsLoading(false);
@@ -51,16 +51,17 @@ function Dashboard({ setUser, user }) {
       />
       <div className="containera text-containera">
         <p className="paragraph">
-          Bonjour {user.name} {user.surname},<br/>Chez Virtual Dimensions, nous
-          offrons des solutions de marketing innovantes pour les entreprises en
-          proposant des visites virtuelles interactives. Avec notre expertise,
-          nous pouvons créer des boutiques virtuelles pour augmenter les ventes
-          en ligne, vendre des bureaux ou des immeubles de manière efficace,
-          permettre aux musées de continuer à être visités malgré les
-          restrictions, et bien plus encore. Faites découvrir votre entreprise
-          sous un nouvel angle avec les visites virtuelles de Virtual
-          Dimensions. Nous aidons les entreprises à se démarquer de la
-          concurrence en offrant une expérience immersive pour leurs clients.
+          Bonjour {user.name} {user.surname},<br />
+          Chez Virtual Dimensions, nous offrons des solutions de marketing
+          innovantes pour les entreprises en proposant des visites virtuelles
+          interactives. Avec notre expertise, nous pouvons créer des boutiques
+          virtuelles pour augmenter les ventes en ligne, vendre des bureaux ou
+          des immeubles de manière efficace, permettre aux musées de continuer à
+          être visités malgré les restrictions, et bien plus encore. Faites
+          découvrir votre entreprise sous un nouvel angle avec les visites
+          virtuelles de Virtual Dimensions. Nous aidons les entreprises à se
+          démarquer de la concurrence en offrant une expérience immersive pour
+          leurs clients.
         </p>
       </div>
       <div className="containera table-containera">

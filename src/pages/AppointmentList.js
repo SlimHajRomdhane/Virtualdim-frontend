@@ -11,7 +11,7 @@ function AppointmentList(props) {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .post("http://localhost:3002/users/verify", { token })
+        .post("https://api.virtualdim.com/users/verify", { token })
         .then(({ data }) => {
           props.setUser(data);
           setIsLoading(false);
@@ -19,7 +19,7 @@ function AppointmentList(props) {
         })
         .then((user) => {
           axios
-            .get("http://localhost:3002/visits")
+            .get("https://api.virtualdim.com/visits")
             .then(({ data }) => {
               if (user.role === "Admin") {
                 setVisits(data);
@@ -52,43 +52,43 @@ function AppointmentList(props) {
 
   return (
     <div className="appointment-page">
-    <div className="content">
-      <div className="container-fluid">
-        <div className="row">
-          <h3>
-            Hello {props.user.name} {props.user.surname}
-          </h3>
-        </div>
-        <div className="row">
-          <div>
-            <div className="content">
-              <table class="table table-hover table-striped">
-                <thead>
-                  <tr>
-                    <th>Visit Date</th>
-                    <th>Customer</th>
-                    <th>Agent</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {visits.map((visit, index) => (
-                    <tr key={index}>
-                      <td>{visit.date}</td>
-                      <td>
-                        {visit.customer.name} {visit.customer.surname}
-                      </td>
-                      <td>
-                        {visit.agent.name} {visit.agent.surname}
-                      </td>
+      <div className="content">
+        <div className="container-fluid">
+          <div className="row">
+            <h3>
+              Hello {props.user.name} {props.user.surname}
+            </h3>
+          </div>
+          <div className="row">
+            <div>
+              <div className="content">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>Visit Date</th>
+                      <th>Customer</th>
+                      <th>Agent</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {visits.map((visit, index) => (
+                      <tr key={index}>
+                        <td>{visit.date}</td>
+                        <td>
+                          {visit.customer.name} {visit.customer.surname}
+                        </td>
+                        <td>
+                          {visit.agent.name} {visit.agent.surname}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

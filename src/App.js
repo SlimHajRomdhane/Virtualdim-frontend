@@ -32,7 +32,7 @@ function App() {
             <div className="navbar-wrapper">
               <Link
                 to={{
-                  pathname: "http://localhost:3001",
+                  pathname: "https://virtualdim.com",
                 }}
                 target="__blank"
                 className="navbar-brand"
@@ -137,7 +137,7 @@ function App() {
                 <li style={{ color: "white" }}>
                   <Link
                     to={{
-                      pathname: "http://localhost:3001",
+                      pathname: "https://virtualdim.com",
                     }}
                     target="__blank"
                     style={{ textDecoration: "none", color: "white" }}

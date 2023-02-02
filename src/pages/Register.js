@@ -25,7 +25,7 @@ function Register(props) {
   const register = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3002/users/register", user)
+      .post("https://api.virtualdim.com/users/register", user)
       .then(({ data }) => {
         localStorage.setItem("token", data.token);
         props.setUser(data.user);

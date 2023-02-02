@@ -21,7 +21,7 @@ function Appointment(props) {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .post("http://localhost:3002/users/verify", { token })
+        .post("https://api.virtualdim.com/users/verify", { token })
         .then(({ data }) => {
           props.setUser(data);
           setIsLoading(false);
@@ -29,7 +29,7 @@ function Appointment(props) {
         })
         .then((user) => {
           axios
-            .get("http://localhost:3002/users")
+            .get("https://api.virtualdim.com/users")
             .then(({ data }) => {
               const agents = data.filter((elem) => elem.role === "Agent");
               setAgentOptions(agents);
@@ -74,7 +74,7 @@ function Appointment(props) {
 
   const createAppointment = () => {
     axios
-      .post("http://localhost:3002/visits", visit)
+      .post("https://api.virtualdim.com/visits", visit)
       .then(() => {
         console.log("created");
       })
